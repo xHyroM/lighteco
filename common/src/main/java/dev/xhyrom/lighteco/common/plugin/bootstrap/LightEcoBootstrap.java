@@ -7,6 +7,7 @@ import net.kyori.adventure.audience.Audience;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface LightEcoBootstrap {
@@ -14,8 +15,11 @@ public interface LightEcoBootstrap {
     PluginLogger getLogger();
     SchedulerAdapter getScheduler();
     Path getDataDirectory();
+
+    Optional<UUID> lookupUniqueId(String username);
     boolean isPlayerOnline(UUID uniqueId);
     List<UUID> getOnlinePlayers();
+
     InputStream getResourceStream(String filename);
     Audience getPlayerAudience(UUID uniqueId);
 }
